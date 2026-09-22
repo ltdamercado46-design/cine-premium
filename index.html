@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine Premium - Baixar APK Oficial</title>
-    
-    <!-- Google Fonts para Design Idêntico à Imagem -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Orbitron:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Meta Pixel Code Corrigido -->
+    <!-- Google Fonts (URLs corrigidas: faltava o subdomínio "fonts.") -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel Code (URLs corrigidas) -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -19,15 +19,15 @@
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e);
     s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://facebook.net');
+    'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1466348258640036');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://facebook.com" /></noscript>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1466348258640036&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
     <style>
-        /* Reset Total para Evitar Telas Quebradas */
         * {
             margin: 0;
             padding: 0;
@@ -36,7 +36,7 @@
         }
 
         body {
-            background-color: #020205; /* Fundo preto profundo do print */
+            background-color: #020205;
             color: #ffffff;
             text-align: center;
             padding: 40px 16px;
@@ -52,7 +52,7 @@
             align-items: center;
         }
 
-        /* 1. Carrossel de Capas Local Simples */
+        /* 1. Carrossel de Capas */
         .featured-title {
             font-size: 10px;
             text-transform: uppercase;
@@ -66,21 +66,20 @@
 
         .movie-carousel {
             width: 100%;
-            overflow-x: auto; /* Ativa a rolagem por completo */
-            white-space: nowrap; /* Força os elementos a ficarem na mesma linha */
+            overflow-x: auto;
+            white-space: nowrap;
             padding-bottom: 20px;
             margin-bottom: 25px;
             text-align: left;
             -webkit-overflow-scrolling: touch;
         }
 
-        /* Remove as barras de rolagem visíveis para manter o design limpo */
         .movie-carousel::-webkit-scrollbar {
             display: none;
         }
 
         .movie-card {
-            display: inline-block; /* Alinha os cards um ao lado do outro sem quebrar */
+            display: inline-block;
             width: 115px;
             margin-right: 12px;
             vertical-align: top;
@@ -94,6 +93,9 @@
             overflow: hidden;
             background-color: #111827;
             box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .image-container img {
@@ -101,6 +103,15 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        .image-container .placeholder-label {
+            font-size: 10px;
+            color: #374151;
+            font-weight: 700;
+            padding: 8px;
+            white-space: normal;
+            text-align: center;
         }
 
         /* Seção de Texto Principal */
@@ -126,7 +137,7 @@
             font-size: 38px;
             font-weight: 900;
             line-height: 1.1;
-            color: #22d3ee; /* Azul Neon */
+            color: #22d3ee;
             letter-spacing: 1.5px;
             margin: 0 auto 20px auto;
             display: block;
@@ -164,7 +175,7 @@
             justify-content: center;
         }
 
-        /* Estilo dos Botões de Instalação (Verde) */
+        /* Botões de Instalação */
         .cta-container {
             width: 100%;
             max-width: 340px;
@@ -203,6 +214,7 @@
             color: #10b981;
             margin-bottom: 35px;
             width: 100%;
+            flex-wrap: wrap;
         }
 
         .stats-row {
@@ -211,6 +223,7 @@
             gap: 10px;
             margin-bottom: 50px;
             width: 100%;
+            flex-wrap: wrap;
         }
 
         .stat-tag {
@@ -228,7 +241,7 @@
             border-color: rgba(34, 211, 238, 0.2);
         }
 
-        /* Quadros de Informação (Filmes, Séries, etc) */
+        /* Quadros de Informação */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -299,7 +312,7 @@
             line-height: 1.5;
         }
 
-        /* Seção do Segundo Botão */
+        /* Segundo CTA */
         .final-section {
             margin-top: 30px;
             margin-bottom: 40px;
@@ -349,6 +362,149 @@
                 gap: 12px;
             }
             .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Carrossel de Capas -->
+        <p class="featured-title">Em destaque no catálogo</p>
+        <div class="movie-carousel">
+            <div class="movie-card">
+                <div class="image-container"><span class="placeholder-label">Capa 1</span></div>
+            </div>
+            <div class="movie-card">
+                <div class="image-container"><span class="placeholder-label">Capa 2</span></div>
+            </div>
+            <div class="movie-card">
+                <div class="image-container"><span class="placeholder-label">Capa 3</span></div>
+            </div>
+            <div class="movie-card">
+                <div class="image-container"><span class="placeholder-label">Capa 4</span></div>
+            </div>
+            <div class="movie-card">
+                <div class="image-container"><span class="placeholder-label">Capa 5</span></div>
+            </div>
+        </div>
+
+        <!-- Texto Principal -->
+        <div class="streaming-badge">STREAMING • 4K • SEM ANÚNCIOS</div>
+        <h1>CINE PREMIUM</h1>
+        <p class="subtitle-count">+ 1.200 TÍTULOS</p>
+        <p class="main-description">
+            Filmes e séries em um só lugar, direto no seu Android.
+            Instale o app oficial e comece a assistir em poucos minutos.
+        </p>
+        <div class="android-box">Compatível com Android 7.0 ou superior</div>
+
+        <!-- CTA -->
+        <div class="cta-container">
+            <a href="https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine1.apk" class="btn-download js-rotating-download">Baixar Agora</a>
+        </div>
+        <div class="security-row">
+            <span>✔ Arquivo verificado</span>
+            <span>✔ Sem cadastro</span>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-tag highlight">4.8 ★ avaliação</div>
+            <div class="stat-tag">+500 mil downloads</div>
+            <div class="stat-tag">Atualizado hoje</div>
+        </div>
+
+        <!-- Números -->
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="num">900+</div>
+                <div class="lbl">Filmes</div>
+            </div>
+            <div class="feature-box">
+                <div class="num">300+</div>
+                <div class="lbl">Séries</div>
+            </div>
+            <div class="feature-box">
+                <div class="num">4K</div>
+                <div class="lbl">Qualidade</div>
+            </div>
+            <div class="feature-box">
+                <div class="num">24/7</div>
+                <div class="lbl">Suporte</div>
+            </div>
+        </div>
+
+        <!-- Benefícios -->
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <span class="benefit-icon">▶</span>
+                <h3>Assista offline</h3>
+                <p>Baixe seus títulos favoritos e assista sem internet quando quiser.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">⚡</span>
+                <h3>Sem travamentos</h3>
+                <p>Streaming otimizado para funcionar bem mesmo com internet mais lenta.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">🔒</span>
+                <h3>Instalação segura</h3>
+                <p>Arquivo verificado, sem permissões abusivas ou pop-ups indesejados.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">🔄</span>
+                <h3>Catálogo atualizado</h3>
+                <p>Novos lançamentos adicionados toda semana ao acervo.</p>
+            </div>
+        </div>
+
+        <!-- Segundo CTA -->
+        <div class="final-section">
+            <p class="final-title">Pronto para começar?</p>
+            <div class="cta-container">
+                <a href="https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine1.apk" class="btn-download js-rotating-download">Baixar o APK</a>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <footer>
+            <p class="footer-brand">CINE PREMIUM <span>· App não afiliado à Google Play Store</span></p>
+            <p class="footer-copy">&copy; 2026 Cine Premium. Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
+    <!-- Distribui os downloads entre os 4 APKs por sorteio aleatório.
+         100% client-side: funciona em qualquer host estático, incluindo GitHub Pages,
+         sem precisar de servidor, banco de dados ou serviço externo. -->
+    <script>
+    (function () {
+        var APKS = [
+            "https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine1.apk",
+            "https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine2.apk",
+            "https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine3.apk",
+            "https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine4.apk"
+        ];
+
+        function pickRandomApkUrl() {
+            var index = Math.floor(Math.random() * APKS.length);
+            return APKS[index];
+        }
+
+        document.querySelectorAll(".js-rotating-download").forEach(function (btn) {
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.location.href = pickRandomApkUrl();
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
                 grid-template-columns: repeat(2, 1fr);
 
     </style>
