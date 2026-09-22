@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine Premium - Baixar APK Oficial</title>
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- Google Fonts para Design Idêntico à Imagem -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Orbitron:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -29,7 +29,7 @@
     <!-- End Meta Pixel Code -->
 
     <style>
-        /* Reset e Estilos Base */
+        /* Estilos Globais e Reset */
         * {
             margin: 0;
             padding: 0;
@@ -37,250 +37,268 @@
         }
 
         body {
-            background-color: #030712;
+            background-color: #020205; /* Fundo preto profundo idêntico à imagem */
             color: #ffffff;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            text-align: center;
-            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 40px 16px;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 650px;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Seção de Filmes em Destaque */
+        /* 1. Carrossel de Filmes (Topo) */
         .featured-title {
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #9ca3af;
+            color: #4b5563;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
-        .movie-grid {
+        .movie-carousel {
             display: flex;
-            justify-content: center;
             gap: 12px;
-            margin-bottom: 40px;
-            width: 100%;
+            width: 100vw;
+            max-width: 650px;
             overflow-x: auto;
-            padding-bottom: 10px;
+            padding: 0 10px 20px 10px;
+            scrollbar-width: none; /* Oculta scroll no Firefox */
+        }
+
+        .movie-carousel::-webkit-scrollbar {
+            display: none; /* Oculta scroll no Chrome/Safari */
         }
 
         .movie-card {
-            position: relative;
-            min-width: 110px;
-            max-width: 130px;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #111827;
-        }
-
-        .movie-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .rating {
-            position: absolute;
-            top: 6px;
-            right: 6px;
-            background: rgba(0, 0, 0, 0.75);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: bold;
-            color: #fbbf24;
-        }
-
-        .movie-info {
-            padding: 6px;
+            min-width: 115px;
+            max-width: 115px;
             text-align: left;
         }
 
-        .genre {
-            display: inline-block;
-            font-size: 9px;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-bottom: 4px;
+        .image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
         }
 
-        .genre.scifi { background: #047857; color: #a7f3d0; }
-        .genre.action { background: #0369a1; color: #bae6fd; }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-        .movie-name {
-            font-size: 10px;
+        .rating-badge {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 9px;
             font-weight: 700;
+            color: #fbbf24;
+        }
+
+        .genre-tag {
+            display: inline-block;
+            font-size: 8px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+        .genre-tag.scifi { background-color: #047857; }
+        .genre-tag.action { background-color: #0369a1; }
+
+        .movie-title {
+            font-size: 10px;
+            font-weight: 600;
+            color: #9ca3af;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        .movie-year {
+        .movie-meta {
             font-size: 9px;
-            color: #6b7280;
+            color: #4b5563;
         }
 
-        /* Elementos de Texto Principal */
-        .badge-streaming {
-            font-size: 11px;
-            font-weight: 700;
-            color: #38bdf8;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .main-heading {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 42px;
-            font-weight: 900;
-            line-height: 1.1;
-            color: #38bdf8;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .sub-heading {
-            font-size: 16px;
-            font-weight: 700;
-            color: #38bdf8;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .description {
-            font-size: 14px;
-            color: #9ca3af;
-            max-width: 540px;
-            line-height: 1.5;
-            margin-bottom: 25px;
-        }
-
-        /* Android Tag */
-        .android-tag {
-            font-size: 12px;
-            color: #9ca3af;
-            background: #111827;
-            padding: 8px 16px;
+        /* 2. Seção de Texto Principal (Hero) */
+        .streaming-badge {
+            background-color: rgba(6, 182, 212, 0.06);
+            color: #22d3ee;
+            border: 1px solid rgba(6, 182, 212, 0.15);
+            padding: 6px 16px;
             border-radius: 20px;
-            border: 1px solid #1f2937;
-            margin-bottom: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-top: 30px;
+            margin-bottom: 25px;
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
 
-        /* Botão de Download Principal */
-        .btn-download {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            max-width: 320px;
-            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-            color: #ffffff;
-            font-size: 16px;
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 38px;
+            font-weight: 900;
+            line-height: 1.1;
+            color: #22d3ee; /* Azul Neon idêntico à imagem */
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        .subtitle-count {
+            font-size: 14px;
             font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 16px 32px;
-            border-radius: 30px;
-            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
+            color: #22d3ee;
+            letter-spacing: 1px;
             margin-bottom: 15px;
-            border: none;
-            cursor: pointer;
         }
 
-        .btn-download:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(16, 185, 129, 0.6);
-        }
-
-        /* Legendas de Segurança */
-        .security-checks {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            font-size: 12px;
-            color: #10b981;
+        .main-description {
+            font-size: 13px;
+            color: #6b7280;
+            max-width: 480px;
+            line-height: 1.6;
             margin-bottom: 30px;
         }
 
-        /* Badges de Estatísticas */
-        .stats-badges {
+        /* 3. Android Tag */
+        .android-box {
+            background-color: rgba(17, 24, 39, 0.6);
+            border: 1px solid #1f2937;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: #9ca3af;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 25px;
+        }
+
+        /* 4. Botão de Download Otimizado */
+        .cta-container {
+            width: 100%;
+            max-width: 340px;
+            margin-bottom: 12px;
+        }
+
+        .btn-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn-download:active {
+            transform: scale(0.98);
+        }
+
+        /* 5. Informações de Segurança e Estatísticas */
+        .security-row {
             display: flex;
             justify-content: center;
             gap: 12px;
-            margin-bottom: 60px;
+            font-size: 11px;
+            color: #10b981;
+            margin-bottom: 35px;
         }
 
-        .stat-badge {
-            font-size: 12px;
-            font-weight: 600;
-            background: #111827;
+        .stats-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 50px;
+        }
+
+        .stat-tag {
+            background-color: rgba(17, 24, 39, 0.8);
+            border: 1px solid #1f2937;
             padding: 6px 14px;
             border-radius: 6px;
-            border: 1px solid #1f2937;
+            font-size: 11px;
             color: #9ca3af;
+            font-weight: 600;
         }
 
-        .stat-badge.blue {
-            color: #38bdf8;
-            border-color: rgba(56, 189, 248, 0.2);
+        .stat-tag.highlight {
+            color: #22d3ee;
+            border-color: rgba(34, 211, 238, 0.2);
         }
 
-        /* Grid de Recursos no Rodapé */
+        /* 6. Grid de Recursos do Rodapé (Quadros com Borda) */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 12px;
             width: 100%;
-            border-top: 1px solid #1f2937;
-            padding-top: 40px;
+            margin-top: 20px;
         }
 
-        .feature-item {
+        .feature-box {
+            background-color: rgba(17, 24, 39, 0.3);
+            border: 1px solid #111827;
+            border-radius: 8px;
+            padding: 20px 10px;
             text-align: center;
         }
 
-        .feature-number {
+        .feature-box .num {
             font-family: 'Orbitron', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #38bdf8;
-            margin-bottom: 5px;
+            font-size: 22px;
+            font-weight: 900;
+            color: #22d3ee;
+            margin-bottom: 4px;
         }
 
-        .feature-label {
-            font-size: 11px;
+        .feature-box .lbl {
+            font-size: 9px;
             text-transform: uppercase;
-            color: #6b7280;
+            color: #4b5563;
             letter-spacing: 1px;
+            font-weight: 600;
         }
 
-        /* Responsividade para telas menores */
-        @media (max-width: 640px) {
+        /* Responsividade para Telas Pequenas */
+        @media (max-width: 500px) {
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
             }
-            .main-heading {
+            h1 {
                 font-size: 32px;
             }
         }
@@ -290,46 +308,30 @@
 
     <div class="container">
         
-        <!-- Seção Superior: Filmes em Destaque -->
+        <!-- 1. Carrossel Horizontal de Filmes -->
         <div class="featured-title">• EM DESTAQUE</div>
-        <div class="movie-grid">
+        <div class="movie-carousel">
             <!-- Filme 1 -->
             <div class="movie-card">
-                <div class="rating">★ 7.8</div>
-                <img src="https://unsplash.com" alt="Batman">
-                <div class="movie-info">
-                    <span class="genre action">Ação</span>
-                    <div class="movie-name">The Batman</div>
-                    <div class="movie-year">2022</div>
+                <div class="image-container">
+                    <span class="rating-badge">★ 7.8</span>
+                    <img src="https://unsplash.com" alt="Batman">
                 </div>
+                <span class="genre-tag action">Ação</span>
+                <div class="movie-title">The Batman</div>
+                <div class="movie-meta">2022</div>
             </div>
             <!-- Filme 2 -->
             <div class="movie-card">
-                <div class="rating">★ 8.5</div>
-                <img src="https://unsplash.com" alt="Dune">
-                <div class="movie-info">
-                    <span class="genre scifi">Ficção</span>
-                    <div class="movie-name">Duna: Parte 2</div>
-                    <div class="movie-year">2024</div>
+                <div class="image-container">
+                    <span class="rating-badge">★ 8.5</span>
+                    <img src="https://unsplash.com" alt="Dune">
                 </div>
+                <span class="genre-tag scifi">Sci-Fi</span>
+                <div class="movie-title">Duno: Parto 2</div>
+                <div class="movie-meta">2024</div>
             </div>
             <!-- Filme 3 -->
             <div class="movie-card">
-                <div class="rating">★ 8.3</div>
-                <img src="https://unsplash.com" alt="Top Gun">
-                <div class="movie-info">
-                    <span class="genre action">Ação</span>
-                    <div class="movie-name">Top Gun: Maverick</div>
-                    <div class="movie-year">2022</div>
-                </div>
-            </div>
-            <!-- Filme 4 -->
-            <div class="movie-card">
-                <div class="rating">★ 7.6</div>
-                <img src="https://unsplash.com" alt="Avatar">
-                <div class="movie-info">
-                    <span class="genre action">Ação</span>
-                    <div class="movie-name">Avatar 2</div>
-                    <div class="movie-year">2022</div>
-                </div>
-            </div>
+                <div class="image-container">
+                    <span class="rating-badge">★ 8.3</span>
