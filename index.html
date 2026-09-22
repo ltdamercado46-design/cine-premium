@@ -52,7 +52,7 @@
             align-items: center;
         }
 
-        /* 1. Carrossel Corrigido (Garante a exibição de todas as 6 imagens) */
+        /* 1. Carrossel de Capas Livre de Erros */
         .featured-title {
             font-size: 10px;
             text-transform: uppercase;
@@ -66,12 +66,12 @@
 
         .movie-carousel {
             width: 100%;
-            overflow-x: scroll; /* Ativa a rolagem por completo */
+            overflow-x: auto; /* Ativa a rolagem por completo */
             white-space: nowrap; /* Força os elementos a ficarem na mesma linha */
             padding-bottom: 20px;
             margin-bottom: 25px;
             text-align: left;
-            -webkit-overflow-scrolling: touch; /* Melhora a rolagem no iPhone */
+            -webkit-overflow-scrolling: touch;
         }
 
         /* Remove as barras de rolagem visíveis para manter o design limpo */
@@ -354,4 +354,8 @@
     </style>
 </head>
 <body>
+
+    <div class="container">
+        
+        <!-- Carrossel Local com as Suas 6 Capas -->
 
