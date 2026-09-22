@@ -66,7 +66,6 @@
             font-weight: 700;
             display: block;
             width: 100%;
-            text-align: center;
         }
 
         .movie-carousel {
@@ -76,11 +75,11 @@
             max-width: 650px;
             overflow-x: auto;
             padding: 0 16px 20px 16px;
-            scrollbar-width: none; /* Oculta barra no Firefox */
+            scrollbar-width: none;
         }
 
         .movie-carousel::-webkit-scrollbar {
-            display: none; /* Oculta barra no Chrome/Safari */
+            display: none;
         }
 
         .movie-card {
@@ -105,7 +104,7 @@
             display: block;
         }
 
-        /* 2. Seção de Texto Principal (Centralização Absoluta) */
+        /* Seção de Texto Principal */
         .streaming-badge {
             background-color: rgba(6, 182, 212, 0.06);
             color: #22d3ee;
@@ -120,7 +119,6 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            justify-content: center;
         }
 
         h1 {
@@ -128,12 +126,12 @@
             font-size: 38px;
             font-weight: 900;
             line-height: 1.1;
-            color: #22d3ee; /* Azul Neon do Print */
+            color: #22d3ee;
             letter-spacing: 1.5px;
             margin: 0 auto 20px auto;
             display: block;
             width: 100%;
-            text-align: center !important; /* Força alinhamento reto no meio */
+            text-align: center;
         }
 
         .subtitle-count {
@@ -142,9 +140,6 @@
             color: #22d3ee;
             letter-spacing: 1px;
             margin-bottom: 15px;
-            display: block;
-            width: 100%;
-            text-align: center;
         }
 
         .main-description {
@@ -153,11 +148,8 @@
             max-width: 480px;
             line-height: 1.6;
             margin: 0 auto 30px auto;
-            display: block;
-            text-align: center;
         }
 
-        /* 3. Android Tag */
         .android-box {
             background-color: rgba(17, 24, 39, 0.6);
             border: 1px solid #1f2937;
@@ -169,10 +161,9 @@
             align-items: center;
             gap: 6px;
             margin-bottom: 25px;
-            justify-content: center;
         }
 
-        /* 4. Botão de Download */
+        /* Botões de Download */
         .cta-container {
             width: 100%;
             max-width: 340px;
@@ -196,14 +187,13 @@
             box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
             border: 1px solid rgba(255,255,255,0.1);
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.1s;
         }
 
         .btn-download:active {
             transform: scale(0.98);
         }
 
-        /* 5. Informações de Segurança e Estatísticas */
         .security-row {
             display: flex;
             justify-content: center;
@@ -211,7 +201,6 @@
             font-size: 11px;
             color: #10b981;
             margin-bottom: 35px;
-            width: 100%;
         }
 
         .stats-row {
@@ -219,7 +208,6 @@
             justify-content: center;
             gap: 10px;
             margin-bottom: 50px;
-            width: 100%;
         }
 
         .stat-tag {
@@ -237,14 +225,14 @@
             border-color: rgba(34, 211, 238, 0.2);
         }
 
-        /* 6. Grid de Recursos do Rodapé */
+        /* Grid de Estatísticas Superiores */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 12px;
             width: 100%;
             margin-top: 20px;
-            padding-bottom: 40px;
+            margin-bottom: 40px;
         }
 
         .feature-box {
@@ -252,7 +240,6 @@
             border: 1px solid #1f2937;
             border-radius: 8px;
             padding: 20px 10px;
-            text-align: center;
         }
 
         .feature-box .num {
@@ -271,7 +258,93 @@
             font-weight: 600;
         }
 
-        @media (max-width: 500px) {
+        /* Grid de Benefícios do Print */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+
+        .benefit-card {
+            background-color: rgba(17, 24, 39, 0.4);
+            border: 1px solid rgba(31, 41, 55, 0.7);
+            border-radius: 8px;
+            padding: 24px 20px;
+            text-align: left;
+        }
+
+        .benefit-icon {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #22d3ee;
+            display: block;
+        }
+
+        .benefit-card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .benefit-card p {
+            font-size: 12px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        /* Seção Final da Página */
+        .final-section {
+            margin-top: 30px;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .final-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        /* Rodapé Oficial da Imagem */
+        footer {
+            width: 100%;
+            border-top: 1px solid #111827;
+            padding-top: 25px;
+            margin-top: 40px;
+        }
+
+        .footer-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: #22d3ee;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .footer-brand span {
+            color: #4b5563;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+        }
+
+        .footer-copy {
+            font-size: 11px;
+            color: #4b5563;
+        }
+
+        @media (max-width: 550px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -285,64 +358,10 @@
 
     <div class="container">
         
-        <!-- Carrossel Limpo -->
+        <!-- Carrossel de Filmes Atualizado (Incluindo capa6.jpg) -->
         <div class="featured-title">• EM DESTAQUE</div>
         <div class="movie-carousel">
-            
-            <div class="movie-card">
-                <div class="image-container">
-                    <img src="capa1.jpg" alt="Capa 1">
-                </div>
-            </div>
-
-            <div class="movie-card">
-                <div class="image-container">
-                    <img src="capa2.jpg" alt="Capa 2">
-                </div>
-            </div>
-
-            <div class="movie-card">
-                <div class="image-container">
-                    <img src="capa3.jpg" alt="Capa 3">
-                </div>
-            </div>
-
-            <div class="movie-card">
-                <div class="image-container">
-                    <img src="capa4.jpg" alt="Capa 4">
-                </div>
-            </div>
-
-            <div class="movie-card">
-                <div class="image-container">
-                    <img src="capa5.jpg" alt="Capa 5">
-                </div>
-            </div>
-
-        </div>
-
-        <div class="streaming-badge">⚡ STREAMING 100% GRATUITO — DISPONÍVEL AGORA</div>
-        
-        <h1>ASSISTA SEM<br>LIMITES</h1>
-        
-        <div class="subtitle-count">10.000+ FILMES E SÉRIES EM HD</div>
-        
-        <p class="main-description">
-            Baixe o Cine Premium gratuitamente e tenha acesso completo ao maior catálogo de streaming. Sem mensalidade. Sem cadastro. Sem limite.
-        </p>
-
-        <div class="android-box">
-            🤖 Exclusivo para Android — APK gratuito e seguro
-        </div>
-
-        <div class="cta-container">
-            <button class="btn-download" id="downloadBtn">
-                <strong>⬇ INSTALAR GRÁTIS</strong>
-            </button>
-        </div>
-
-        <div class="security-row">
-            <span>✓ Gratuito</span>
+            <div class="movie-card"><div class="image-container"><img src="capa6.jpg" alt="Capa 6"></div></div>
 
         <!-- Grid de Recursos do Rodapé Corrigido -->
         <div class="features-grid">
