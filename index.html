@@ -114,6 +114,10 @@
             text-align: center;
         }
 
+        .image-container img[data-broken="1"] {
+            display: none;
+        }
+
         /* Seção de Texto Principal */
         .streaming-badge {
             background-color: rgba(6, 182, 212, 0.06);
@@ -179,7 +183,7 @@
         .cta-container {
             width: 100%;
             max-width: 340px;
-            margin-bottom: 12px;
+            margin: 0 auto 12px auto;
         }
 
         .btn-download {
@@ -192,6 +196,8 @@
             color: #ffffff;
             font-size: 15px;
             font-weight: 800;
+            line-height: 1;
+            white-space: nowrap;
             text-transform: uppercase;
             text-decoration: none;
             padding: 18px;
@@ -200,6 +206,13 @@
             border: 1px solid rgba(255,255,255,0.1);
             cursor: pointer;
             transition: transform 0.1s;
+        }
+
+        .btn-download .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
+            font-size: 16px;
         }
 
         .btn-download:active {
@@ -377,19 +390,22 @@
         <p class="featured-title">Em destaque no catálogo</p>
         <div class="movie-carousel">
             <div class="movie-card">
-                <div class="image-container"><span class="placeholder-label">Capa 1</span></div>
+                <div class="image-container"><img src="capa1.jpg" alt="Capa 1" loading="lazy" onerror="this.dataset.broken='1'; this.nextElementSibling.style.display='block';"><span class="placeholder-label" style="display:none">Capa 1</span></div>
             </div>
             <div class="movie-card">
-                <div class="image-container"><span class="placeholder-label">Capa 2</span></div>
+                <div class="image-container"><img src="capa2.jpg" alt="Capa 2" loading="lazy" onerror="this.dataset.broken='1'; this.nextElementSibling.style.display='block';"><span class="placeholder-label" style="display:none">Capa 2</span></div>
             </div>
             <div class="movie-card">
-                <div class="image-container"><span class="placeholder-label">Capa 3</span></div>
+                <div class="image-container"><img src="capa3.jpg" alt="Capa 3" loading="lazy" onerror="this.dataset.broken='1'; this.nextElementSibling.style.display='block';"><span class="placeholder-label" style="display:none">Capa 3</span></div>
             </div>
             <div class="movie-card">
-                <div class="image-container"><span class="placeholder-label">Capa 4</span></div>
+                <div class="image-container"><img src="capa4.jpg" alt="Capa 4" loading="lazy" onerror="this.dataset.broken='1'; this.nextElementSibling.style.display='block';"><span class="placeholder-label" style="display:none">Capa 4</span></div>
             </div>
             <div class="movie-card">
-                <div class="image-container"><span class="placeholder-label">Capa 5</span></div>
+                <div class="image-container"><img src="capa5.jpg" alt="Capa 5" loading="lazy" onerror="this.dataset.broken='1'; this.nextElementSibling.style.display='block';"><span class="placeholder-label" style="display:none">Capa 5</span></div>
+            </div>
+            <div class="movie-card">
+                <div class="image-container"><img src="capa6.jpg" alt="Capa 6" loading="lazy" onerror="this.dataset.broken='1'; this.nextElementSibling.style.display='block';"><span class="placeholder-label" style="display:none">Capa 6</span></div>
             </div>
         </div>
 
@@ -405,11 +421,12 @@
 
         <!-- CTA -->
         <div class="cta-container">
-            <a href="https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine1.apk" class="btn-download js-rotating-download">Baixar Agora</a>
+            <a href="https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine1.apk" class="btn-download js-rotating-download">⬇ Instalar Grátis</a>
         </div>
         <div class="security-row">
-            <span>✔ Arquivo verificado</span>
-            <span>✔ Sem cadastro</span>
+            <span>✓ Gratuito</span>
+            <span>✓ Sem vírus</span>
+            <span>✓ Rápido</span>
         </div>
 
         <div class="stats-row">
@@ -466,7 +483,7 @@
         <div class="final-section">
             <p class="final-title">Pronto para começar?</p>
             <div class="cta-container">
-                <a href="https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine1.apk" class="btn-download js-rotating-download">Baixar o APK</a>
+                <a href="https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine1.apk" class="btn-download js-rotating-download">⬇ Instalar Grátis</a>
             </div>
         </div>
 
@@ -505,6 +522,4 @@
     </script>
 </body>
 </html>
-                grid-template-columns: repeat(2, 1fr);
 
-    </style>
