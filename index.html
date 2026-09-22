@@ -37,7 +37,7 @@
         }
 
         body {
-            background-color: #020205; /* Fundo preto profundo idêntico à imagem */
+            background-color: #020205; /* Fundo preto profundo do print */
             color: #ffffff;
             font-family: 'Plus Jakarta Sans', sans-serif;
             display: flex;
@@ -55,7 +55,7 @@
             align-items: center;
         }
 
-        /* 1. Carrossel de Filmes (Topo) */
+        /* 1. Carrossel de Filmes (Visual do Print limpo) */
         .featured-title {
             font-size: 10px;
             text-transform: uppercase;
@@ -71,18 +71,17 @@
             width: 100vw;
             max-width: 650px;
             overflow-x: auto;
-            padding: 0 10px 20px 10px;
-            scrollbar-width: none; /* Oculta scroll no Firefox */
+            padding: 0 16px 20px 16px;
+            scrollbar-width: none; /* Oculta barra no Firefox */
         }
 
         .movie-carousel::-webkit-scrollbar {
-            display: none; /* Oculta scroll no Chrome/Safari */
+            display: none; /* Oculta barra no Chrome/Safari */
         }
 
         .movie-card {
             min-width: 115px;
             max-width: 115px;
-            text-align: left;
         }
 
         .image-container {
@@ -91,7 +90,7 @@
             aspect-ratio: 2 / 3;
             border-radius: 8px;
             overflow: hidden;
-            margin-bottom: 8px;
+            background-color: #111827;
             box-shadow: 0 8px 20px rgba(0,0,0,0.6);
         }
 
@@ -99,49 +98,10 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
-        .rating-badge {
-            position: absolute;
-            top: 6px;
-            right: 6px;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 9px;
-            font-weight: 700;
-            color: #fbbf24;
-        }
-
-        .genre-tag {
-            display: inline-block;
-            font-size: 8px;
-            padding: 2px 8px;
-            border-radius: 20px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-        }
-        .genre-tag.scifi { background-color: #047857; }
-        .genre-tag.action { background-color: #0369a1; }
-
-        .movie-title {
-            font-size: 10px;
-            font-weight: 600;
-            color: #9ca3af;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .movie-meta {
-            font-size: 9px;
-            color: #4b5563;
-        }
-
-        /* 2. Seção de Texto Principal (Hero) */
+        /* 2. Seção de Texto Principal (Copy) */
         .streaming-badge {
             background-color: rgba(6, 182, 212, 0.06);
             color: #22d3ee;
@@ -163,7 +123,7 @@
             font-size: 38px;
             font-weight: 900;
             line-height: 1.1;
-            color: #22d3ee; /* Azul Neon idêntico à imagem */
+            color: #22d3ee; /* Azul Neon */
             letter-spacing: 1.5px;
             margin-bottom: 20px;
         }
@@ -198,7 +158,7 @@
             margin-bottom: 25px;
         }
 
-        /* 4. Botão de Download Otimizado */
+        /* 4. Botão de Download */
         .cta-container {
             width: 100%;
             max-width: 340px;
@@ -260,7 +220,7 @@
             border-color: rgba(34, 211, 238, 0.2);
         }
 
-        /* 6. Grid de Recursos do Rodapé (Quadros com Borda) */
+        /* 6. Grid de Recursos do Rodapé */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -293,7 +253,6 @@
             font-weight: 600;
         }
 
-        /* Responsividade para Telas Pequenas */
         @media (max-width: 500px) {
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -308,30 +267,79 @@
 
     <div class="container">
         
-        <!-- 1. Carrossel Horizontal de Filmes -->
+        <!-- Carrossel Limpo: Apenas as Suas 5 Imagens Locais, sem textos -->
         <div class="featured-title">• EM DESTAQUE</div>
         <div class="movie-carousel">
-            <!-- Filme 1 -->
+            
             <div class="movie-card">
                 <div class="image-container">
-                    <span class="rating-badge">★ 7.8</span>
-                    <img src="https://unsplash.com" alt="Batman">
+                    <img src="capa1.jpg" alt="Capa 1">
                 </div>
-                <span class="genre-tag action">Ação</span>
-                <div class="movie-title">The Batman</div>
-                <div class="movie-meta">2022</div>
             </div>
-            <!-- Filme 2 -->
+
             <div class="movie-card">
                 <div class="image-container">
-                    <span class="rating-badge">★ 8.5</span>
-                    <img src="https://unsplash.com" alt="Dune">
+                    <img src="capa2.jpg" alt="Capa 2">
                 </div>
-                <span class="genre-tag scifi">Sci-Fi</span>
-                <div class="movie-title">Duno: Parto 2</div>
-                <div class="movie-meta">2024</div>
             </div>
-            <!-- Filme 3 -->
+
             <div class="movie-card">
                 <div class="image-container">
-                    <span class="rating-badge">★ 8.3</span>
+                    <img src="capa3.jpg" alt="Capa 3">
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <div class="image-container">
+                    <img src="capa4.jpg" alt="Capa 4">
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <div class="image-container">
+                    <img src="capa5.jpg" alt="Capa 5">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="streaming-badge">⚡ STREAMING 100% GRATUITO — DISPONÍVEL AGORA</div>
+        
+        <h1>ASSISTA SEM<br>LIMITES</h1>
+        
+        <div class="subtitle-count">10.000+ FILMES E SÉRIES EM HD</div>
+        
+        <p class="main-description">
+            Baixe o Cine Premium gratuitamente e tenha acesso completo ao maior catálogo de streaming. Sem mensalidade. Sem cadastro. Sem limite.
+        </p>
+
+        <div class="android-box">
+            🤖 Exclusivo para Android — APK gratuito e seguro
+        </div>
+
+        <div class="cta-container">
+            <button class="btn-download" id="downloadBtn">
+                <strong>⬇ INSTALAR GRÁTIS</strong>
+            </button>
+        </div>
+
+        <div class="security-row">
+            <span>✓ Gratuito</span>
+            <span>✓ Sem vírus</span>
+            <span>✓ Rápido</span>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-tag highlight">👥 1.2M+ usuários ativos</div>
+            <div class="stat-tag">📥 Download nº 545</div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="num">10K+</div>
+                <div class="lbl">Filmes</div>
+            </div>
+            <div class="feature-box">
+                <div class="num">500+</div>
+                <div class="lbl">Séries</div>
+
