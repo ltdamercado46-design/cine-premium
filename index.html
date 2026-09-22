@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Premium - Baixar APK Oficial</title>
+    
+    <!-- Google Fonts para Design Moderno -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e);
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://facebook.net');
+    fbq('init', '1466348258640036');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://facebook.com"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        /* Estilos Globais e Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0b0c10;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Cabeçalho / Logo */
+        header {
+            padding: 20px 0 10px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: #e50914; /* Vermelho streaming */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ffffff;
+        }
+
+        /* Seção Hero (Principal) */
+        .hero {
+            margin-top: 15px;
+        }
+
+        .badge-escassez {
+            background-color: rgba(229, 9, 20, 0.15);
+            color: #ff3333;
+            border: 1px solid #e50914;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        h1 span {
+            color: #00dfa2; /* Verde Neon para Conversão */
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+
+        /* Seção de Capas de Filmes (Layout à Prova de Erros) */
+        .movie-headline {
+            text-align: left;
+            font-size: 14px;
+            font-weight: 700;
+            color: #94a3b8;
+            margin: 25px 0 12px 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Grid Inteligente: Se adapta ao celular (2 colunas) ou PC (3 colunas) */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        @media (min-width: 480px) {
+            .movie-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Card Container Controlado */
+        .movie-card {
+            background: #12161a;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+            width: 100%;
+            aspect-ratio: 2 / 3; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Imagem Controlada Contra Distorção e Erros de Tamanho */
+        .movie-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            object-position: center;
+            display: block;
+        }
+
+        .movie-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: #00dfa2;
+            color: #000;
+            font-size: 9px;
+            font-weight: 800;
+            padding: 3px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 6px rgba(0,223,162,0.3);
+            z-index: 2;
+        }
+
+        /* Botão de Chamada para Ação (CTA) */
+        .cta-wrapper {
+            margin: 35px 0 20px;
+            position: relative;
+        }
+
+        .btn-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #00dfa2 0%, #00b884 100%);
+            color: #000000;
+            text-decoration: none;
+            padding: 20px 30px;
+            border-radius: 12px;
+            font-size: 19px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 28px rgba(0, 223, 162, 0.45);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-download:active {
+            transform: translateY(2px);
+            box-shadow: 0 4px 12px rgba(0, 223, 162, 0.2);
+        }
+
+        /* Elemento de Prova Social Falsa de Alta Conversão */
+        .social-proof-banner {
+            background: rgba(0, 223, 162, 0.08);
+            border: 1px dashed #00dfa2;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 15px 0;
+            font-size: 14px;
+            color: #00dfa2;
+            font-weight: 600;
+        }
+
+        /* Prova Social e Segurança */
+        .security-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 18px;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .security-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Elemento de Engajamento: Contador de Downloads */
+        .live-counter {
+            background: #161b22;
+            border: 1px solid #21262d;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #c9d1d9;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00dfa2;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px #00dfa2;
+            animation: blink 1.5s infinite;
+        }
+
+        /* Rodapé obrigatório/políticas */
+        footer {
+            margin-top: 50px;
+            padding: 20px 0;
+            font-size: 11px;
+            color: #475569;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* Animações */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes blink {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header>
+            <div class="logo">Cine <span>Premium</span></div>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="hero">
+            <div class="badge-escassez">Apenas 47 acessos liberados hoje</div>
+            
+            <h1>Assista Filmes e Séries Liberados <span>Via APK</span></h1>
+            <p class="subtitle">Instale o aplicativo oficial de forma 100% segura e assista lançamentos em Ultra HD sem anúncios.</p>
+
+            <!-- Chamada de Seção das Capas -->
+            <div class="movie-headline">🔥 Tendências Disponíveis para Assistir:</div>
+
+            <!-- Grade configurada para ler as capas soltas na pasta raiz -->
+            <div class="movie-grid">
+                <!-- Capa 1 -->
+                <div class="movie-card">
+                    <span class="movie-badge">Exclusivo</span>
+                    <img src="./capa1.jpg" alt="Mestres do Universo">
+                </div>
+                
+                <!-- Capa 2 -->
+                <div class="movie-card">
+                    <span class="movie-badge">Lançamento</span>
+                    <img src="./capa2.jpg" alt="O Drama">
+                </div>
+                
+                <!-- Capa 3 -->
+                <div class="movie-card">
+                    <span class="movie-badge">4K Ultra</span>
+                    <img src="./capa3.jpg" alt="The Odyssey">
+                </div>
+                
+                <!-- Capa 4 -->
+                <div class="movie-card">
+                    <span class="movie-badge">Legendado</span>
+                    <img src="./capa4.jpg" alt="Série Premium">
+                </div>
+
+                <!-- Capa 5 -->
+                <div class="movie-card">
+                    <span class="movie-badge">Dublado</span>
+                    <img src="./capa5.jpg" alt="Pânico VI">
+                </div>
+            </div>
+
+            <!-- Zona de Conversão -->
+            <div class="cta-wrapper">
+                
+                <div class="social-proof-banner">
+                    ✅ 1.846 downloads concluídos com sucesso hoje
+                </div>
+
+                <a id="downloadBtn" class="btn-download">
