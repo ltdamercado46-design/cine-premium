@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Premium - Baixar APK Oficial</title>
-
-    <!-- Google Fonts (URLs corrigidas: faltava o subdomínio "fonts.") -->
+    <title>Cine Premium — Download Oficial</title>
+    <meta name="description" content="Cine Premium — Filmes e séries em alta qualidade no seu Android. Download oficial.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Meta Pixel Code (URLs corrigidas) -->
+    <!-- Meta Pixel -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e);
+    t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1466348258640036');
@@ -25,26 +23,38 @@
     </script>
     <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=1466348258640036&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
-
     <style>
+        :root {
+            --bg: #050508;
+            --surface: rgba(17, 24, 39, 0.55);
+            --border: rgba(255, 255, 255, 0.07);
+            --cyan: #22d3ee;
+            --cyan-dim: rgba(34, 211, 238, 0.12);
+            --green: #10b981;
+            --text: #f3f4f6;
+            --muted: #9ca3af;
+            --muted2: #6b7280;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: #020205;
-            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             text-align: center;
-            padding: 40px 16px;
+            padding: 48px 20px 72px;
+            min-height: 100vh;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 650px;
+            max-width: 640px;
             width: 100%;
             margin: 0 auto;
             display: flex;
@@ -52,452 +62,463 @@
             align-items: center;
         }
 
-        /* 1. Carrossel de Capas */
-        .featured-title {
-            font-size: 10px;
+        /* ===== Carrossel ===== */
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2.4px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #4b5563;
-            margin-bottom: 20px;
-            font-weight: 700;
-            width: 100%;
-            text-align: center;
+            color: var(--muted2);
+            margin-bottom: 18px;
         }
 
-        .movie-carousel {
+        .carousel {
             width: 100%;
             overflow-x: auto;
             white-space: nowrap;
-            padding-bottom: 20px;
-            margin-bottom: 25px;
-            text-align: left;
+            padding-bottom: 8px;
+            margin-bottom: 36px;
             -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
         }
+        .carousel::-webkit-scrollbar { display: none; }
 
-        .movie-carousel::-webkit-scrollbar {
-            display: none;
-        }
-
-        .movie-card {
+        .card {
             display: inline-block;
-            width: 115px;
-            margin-right: 12px;
+            width: 116px;
+            margin-right: 14px;
             vertical-align: top;
         }
 
-        .image-container {
+        .poster {
             position: relative;
             width: 100%;
             aspect-ratio: 2 / 3;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            background-color: #111827;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: #111827;
+            border: 1px solid var(--border);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
         }
 
-        .image-container img {
+        .poster img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        .image-container .placeholder-label {
-            font-size: 10px;
-            color: #374151;
-            font-weight: 700;
-            padding: 8px;
-            white-space: normal;
-            text-align: center;
-        }
-
-        .image-container img[data-broken="1"] {
+        .poster .fallback {
             display: none;
+            position: absolute;
+            inset: 0;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--muted2);
+            background: #111827;
         }
 
-        /* Seção de Texto Principal */
-        .streaming-badge {
-            background-color: rgba(6, 182, 212, 0.06);
-            color: #22d3ee;
-            border: 1px solid rgba(6, 182, 212, 0.15);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            margin-top: 30px;
-            margin-bottom: 25px;
+        .poster img[data-broken="1"] + .fallback {
+            display: flex;
+        }
+
+        /* ===== Hero ===== */
+        .badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            justify-content: center;
+            gap: 8px;
+            padding: 7px 18px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            color: var(--cyan);
+            background: var(--cyan-dim);
+            border: 1px solid rgba(34, 211, 238, 0.22);
+            margin-bottom: 20px;
         }
 
         h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 38px;
+            font-size: clamp(28px, 7vw, 38px);
             font-weight: 900;
+            letter-spacing: 1.8px;
+            color: var(--cyan);
             line-height: 1.1;
-            color: #22d3ee;
-            letter-spacing: 1.5px;
-            margin: 0 auto 20px auto;
-            display: block;
-            width: 100%;
-            text-align: center;
+            margin-bottom: 12px;
         }
 
-        .subtitle-count {
-            font-size: 14px;
+        .count {
+            font-size: 15px;
             font-weight: 700;
-            color: #22d3ee;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            letter-spacing: 1.4px;
+            color: var(--cyan);
+            margin-bottom: 16px;
         }
 
-        .main-description {
-            font-size: 13px;
-            color: #6b7280;
-            max-width: 480px;
-            line-height: 1.6;
-            margin: 0 auto 30px auto;
+        .desc {
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--muted);
+            max-width: 440px;
+            margin: 0 auto 28px;
         }
 
-        .android-box {
-            background-color: rgba(17, 24, 39, 0.6);
-            border: 1px solid #1f2937;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 11px;
-            color: #9ca3af;
+        .compat {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            margin-bottom: 25px;
-            justify-content: center;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            color: var(--muted);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            margin-bottom: 32px;
         }
 
-        /* Botões de Instalação */
-        .cta-container {
+        /* ===== CTA ===== */
+        .cta-wrap {
             width: 100%;
-            max-width: 340px;
-            margin: 0 auto 12px auto;
+            max-width: 320px;
+            margin-bottom: 20px;
         }
 
-        .btn-download {
+        .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             width: 100%;
-            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-            color: #ffffff;
+            padding: 18px 24px;
+            border-radius: 14px;
             font-size: 15px;
             font-weight: 800;
-            line-height: 1;
-            white-space: nowrap;
+            letter-spacing: 0.6px;
             text-transform: uppercase;
             text-decoration: none;
-            padding: 18px;
-            border-radius: 12px;
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
-            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 28px rgba(16, 185, 129, 0.32);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
             cursor: pointer;
-            transition: transform 0.1s;
         }
 
-        .btn-download .btn-icon {
-            display: inline-flex;
-            align-items: center;
-            line-height: 1;
-            font-size: 16px;
+        .btn:hover {
+            box-shadow: 0 12px 36px rgba(16, 185, 129, 0.42);
+            transform: translateY(-1px);
         }
 
-        .btn-download:active {
+        .btn:active {
             transform: scale(0.98);
         }
 
-        .security-row {
+        .trust {
             display: flex;
-            justify-content: center;
-            gap: 12px;
-            font-size: 11px;
-            color: #10b981;
-            margin-bottom: 35px;
-            width: 100%;
             flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 14px;
+            font-size: 12.5px;
+            color: var(--muted2);
+            margin-bottom: 36px;
         }
 
-        .stats-row {
+        .trust span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stats {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 50px;
-            width: 100%;
-            flex-wrap: wrap;
+            margin-bottom: 48px;
         }
 
-        .stat-tag {
-            background-color: rgba(17, 24, 39, 0.8);
-            border: 1px solid #1f2937;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 11px;
-            color: #9ca3af;
+        .stat {
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 12.5px;
             font-weight: 600;
+            color: var(--muted);
+            background: var(--surface);
+            border: 1px solid var(--border);
         }
 
-        .stat-tag.highlight {
-            color: #22d3ee;
-            border-color: rgba(34, 211, 238, 0.2);
+        .stat.accent {
+            color: var(--cyan);
+            background: var(--cyan-dim);
+            border-color: rgba(34, 211, 238, 0.22);
         }
 
-        /* Quadros de Informação */
-        .features-grid {
+        /* ===== Grid de números ===== */
+        .metrics {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 12px;
             width: 100%;
-            margin-top: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
         }
 
-        .feature-box {
-            background-color: rgba(17, 24, 39, 0.3);
-            border: 1px solid #1f2937;
-            border-radius: 8px;
-            padding: 20px 10px;
+        .metric {
+            padding: 22px 8px;
+            border-radius: 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: border-color 0.2s ease;
         }
 
-        .feature-box .num {
+        .metric:hover {
+            border-color: rgba(34, 211, 238, 0.28);
+        }
+
+        .metric .value {
             font-family: 'Orbitron', sans-serif;
-            font-size: 22px;
-            font-weight: 900;
-            color: #22d3ee;
-            margin-bottom: 4px;
-        }
-
-        .feature-box .lbl {
-            font-size: 9px;
-            text-transform: uppercase;
-            color: #4b5563;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        /* Grid de Benefícios Finais */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            width: 100%;
-            margin-top: 20px;
-            margin-bottom: 50px;
-        }
-
-        .benefit-card {
-            background-color: rgba(17, 24, 39, 0.4);
-            border: 1px solid rgba(31, 41, 55, 0.7);
-            border-radius: 8px;
-            padding: 24px 20px;
-            text-align: left;
-        }
-
-        .benefit-icon {
             font-size: 20px;
+            font-weight: 900;
+            color: var(--cyan);
+            margin-bottom: 6px;
+        }
+
+        .metric .label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+            color: var(--muted2);
+        }
+
+        /* ===== Benefícios ===== */
+        .benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            width: 100%;
+            margin-bottom: 52px;
+        }
+
+        .benefit {
+            text-align: left;
+            padding: 24px 20px;
+            border-radius: 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .benefit:hover {
+            border-color: rgba(34, 211, 238, 0.22);
+            background: rgba(17, 24, 39, 0.75);
+        }
+
+        .benefit .icon {
+            font-size: 18px;
+            color: var(--cyan);
             margin-bottom: 12px;
-            color: #22d3ee;
             display: block;
         }
 
-        .benefit-card h3 {
-            font-size: 14px;
+        .benefit h3 {
+            font-size: 15px;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text);
             margin-bottom: 8px;
         }
 
-        .benefit-card p {
-            font-size: 12px;
-            color: #6b7280;
-            line-height: 1.5;
+        .benefit p {
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--muted);
         }
 
-        /* Segundo CTA */
-        .final-section {
-            margin-top: 30px;
-            margin-bottom: 40px;
+        /* ===== CTA final ===== */
+        .final {
             width: 100%;
+            margin-bottom: 56px;
         }
 
-        .final-title {
+        .final h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 900;
-            color: #ffffff;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
+            margin-bottom: 22px;
         }
 
-        /* Rodapé */
+        /* ===== Footer ===== */
         footer {
             width: 100%;
-            border-top: 1px solid #111827;
-            padding-top: 25px;
-            margin-top: 40px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .footer-brand {
             font-family: 'Orbitron', sans-serif;
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 700;
-            color: #22d3ee;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-        }
-
-        .footer-brand span {
-            color: #4b5563;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 400;
+            letter-spacing: 1.8px;
+            color: var(--cyan);
+            margin-bottom: 8px;
         }
 
         .footer-copy {
-            font-size: 11px;
-            color: #4b5563;
+            font-size: 12px;
+            color: var(--muted2);
         }
 
-        @media (max-width: 550px) {
-            .benefits-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            h1 {
-                font-size: 30px;
-            }
+        /* ===== Responsivo ===== */
+        @media (max-width: 560px) {
+            body { padding: 36px 16px 56px; }
+            .metrics { grid-template-columns: 1fr 1fr; }
+            .benefits { grid-template-columns: 1fr; }
+            .final h2 { font-size: 20px; }
+            .trust { gap: 4px 10px; font-size: 12px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
 
-        <!-- Carrossel de Capas -->
-        <p class="featured-title">Em destaque no catálogo</p>
-        <div class="movie-carousel">
-            <div class="movie-card">
-                <div class="image-container"><img src="capa1.jpg" alt="Capa 1" loading="lazy" onerror="this.dataset.broken='1'; this.nextElementSibling.style.display='block';"><span class="placeholder-label" style="display:none">Capa 1</span></div>
+        <!-- Carrossel -->
+        <p class="section-label">Em destaque no catálogo</p>
+        <div class="carousel">
+            <div class="card">
+                <div class="poster">
+                    <img src="capa1.jpg" alt="Capa 1" loading="lazy" onerror="this.dataset.broken='1'">
+                    <div class="fallback">Capa 1</div>
+                </div>
             </div>
-            <div class="movie-card">
-                <div class="image-container"><img src="capa2.jpg" alt="Capa 2" loading="lazy" onerror="this.dataset.broken='1'; this.nextElementSibling.style.display='block';"><span class="placeholder-label" style="display:none">Capa 2</span></div>
+            <div class="card">
+                <div class="poster">
+                    <img src="capa2.jpg" alt="Capa 2" loading="lazy" onerror="this.dataset.broken='1'">
+                    <div class="fallback">Capa 2</div>
+                </div>
             </div>
-            <div class="movie-card">
-                <div class="image-container"><img src="capa3.jpg" alt="Capa 3" loading="lazy" onerror="this.dataset.broken='1'; this.nextElementSibling.style.display='block';"><span class="placeholder-label" style="display:none">Capa 3</span></div>
+            <div class="card">
+                <div class="poster">
+                    <img src="capa3.jpg" alt="Capa 3" loading="lazy" onerror="this.dataset.broken='1'">
+                    <div class="fallback">Capa 3</div>
+                </div>
             </div>
-            <div class="movie-card">
-                <div class="image-container"><img src="capa4.jpg" alt="Capa 4" loading="lazy" onerror="this.dataset.broken='1'; this.nextElementSibling.style.display='block';"><span class="placeholder-label" style="display:none">Capa 4</span></div>
+            <div class="card">
+                <div class="poster">
+                    <img src="capa4.jpg" alt="Capa 4" loading="lazy" onerror="this.dataset.broken='1'">
+                    <div class="fallback">Capa 4</div>
+                </div>
             </div>
-            <div class="movie-card">
-                <div class="image-container"><img src="capa5.jpg" alt="Capa 5" loading="lazy" onerror="this.dataset.broken='1'; this.nextElementSibling.style.display='block';"><span class="placeholder-label" style="display:none">Capa 5</span></div>
+            <div class="card">
+                <div class="poster">
+                    <img src="capa5.jpg" alt="Capa 5" loading="lazy" onerror="this.dataset.broken='1'">
+                    <div class="fallback">Capa 5</div>
+                </div>
             </div>
-            <div class="movie-card">
-                <div class="image-container"><img src="capa6.jpg" alt="Capa 6" loading="lazy" onerror="this.dataset.broken='1'; this.nextElementSibling.style.display='block';"><span class="placeholder-label" style="display:none">Capa 6</span></div>
+            <div class="card">
+                <div class="poster">
+                    <img src="capa6.jpg" alt="Capa 6" loading="lazy" onerror="this.dataset.broken='1'">
+                    <div class="fallback">Capa 6</div>
+                </div>
             </div>
         </div>
 
-        <!-- Texto Principal -->
-        <div class="streaming-badge">STREAMING • 4K • SEM ANÚNCIOS</div>
+        <!-- Hero -->
+        <div class="badge">STREAMING • 4K • SEM ANÚNCIOS</div>
         <h1>CINE PREMIUM</h1>
-        <p class="subtitle-count">+ 1.200 TÍTULOS</p>
-        <p class="main-description">
-            Filmes e séries em um só lugar, direto no seu Android.
-            Instale o app oficial e comece a assistir em poucos minutos.
+        <p class="count">+ 1.200 TÍTULOS</p>
+        <p class="desc">
+            Filmes e séries em um só lugar, direto no seu Android.<br>
+            Instale o aplicativo oficial e comece a assistir em poucos minutos.
         </p>
-        <div class="android-box">Compatível com Android 7.0 ou superior</div>
+        <div class="compat">Compatível com Android 7.0 ou superior</div>
 
-        <!-- CTA -->
-        <div class="cta-container">
-            <a href="https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine1.apk" class="btn-download js-rotating-download">⬇ Instalar Grátis</a>
-        </div>
-        <div class="security-row">
-            <span>✓ Gratuito</span>
-            <span>✓ Sem vírus</span>
-            <span>✓ Rápido</span>
+        <!-- CTA principal -->
+        <div class="cta-wrap">
+            <a href="https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine1.apk"
+               class="btn js-rotating-download">
+                ⬇ Instalar Grátis
+            </a>
         </div>
 
-        <div class="stats-row">
-            <div class="stat-tag highlight">4.8 ★ avaliação</div>
-            <div class="stat-tag">+500 mil downloads</div>
-            <div class="stat-tag">Atualizado hoje</div>
+        <div class="trust">
+            <span>Download direto</span>
+            <span>•</span>
+            <span>Instalação simples</span>
+            <span>•</span>
+            <span>Uso pessoal</span>
         </div>
 
-        <!-- Números -->
-        <div class="features-grid">
-            <div class="feature-box">
-                <div class="num">900+</div>
-                <div class="lbl">Filmes</div>
+        <div class="stats">
+            <div class="stat accent">Avaliação positiva</div>
+            <div class="stat">Catálogo em crescimento</div>
+            <div class="stat">Atualizações regulares</div>
+        </div>
+
+        <!-- Métricas -->
+        <div class="metrics">
+            <div class="metric">
+                <div class="value">1.200+</div>
+                <div class="label">Títulos</div>
             </div>
-            <div class="feature-box">
-                <div class="num">300+</div>
-                <div class="lbl">Séries</div>
+            <div class="metric">
+                <div class="value">Filmes</div>
+                <div class="label">& Séries</div>
             </div>
-            <div class="feature-box">
-                <div class="num">4K</div>
-                <div class="lbl">Qualidade</div>
+            <div class="metric">
+                <div class="value">4K</div>
+                <div class="label">Qualidade</div>
             </div>
-            <div class="feature-box">
-                <div class="num">24/7</div>
-                <div class="lbl">Suporte</div>
+            <div class="metric">
+                <div class="value">24/7</div>
+                <div class="label">Disponível</div>
             </div>
         </div>
 
         <!-- Benefícios -->
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <span class="benefit-icon">▶</span>
+        <div class="benefits">
+            <div class="benefit">
+                <span class="icon">▶</span>
                 <h3>Assista offline</h3>
                 <p>Baixe seus títulos favoritos e assista sem internet quando quiser.</p>
             </div>
-            <div class="benefit-card">
-                <span class="benefit-icon">⚡</span>
-                <h3>Sem travamentos</h3>
-                <p>Streaming otimizado para funcionar bem mesmo com internet mais lenta.</p>
+            <div class="benefit">
+                <span class="icon">⚡</span>
+                <h3>Streaming estável</h3>
+                <p>Otimizado para funcionar bem mesmo com conexão mais lenta.</p>
             </div>
-            <div class="benefit-card">
-                <span class="benefit-icon">🔒</span>
-                <h3>Instalação segura</h3>
-                <p>Arquivo verificado, sem permissões abusivas ou pop-ups indesejados.</p>
+            <div class="benefit">
+                <span class="icon">🔒</span>
+                <h3>Instalação simples</h3>
+                <p>Arquivo direto, sem etapas complicadas ou pop-ups indesejados.</p>
             </div>
-            <div class="benefit-card">
-                <span class="benefit-icon">🔄</span>
+            <div class="benefit">
+                <span class="icon">🔄</span>
                 <h3>Catálogo atualizado</h3>
-                <p>Novos lançamentos adicionados toda semana ao acervo.</p>
+                <p>Novos lançamentos adicionados regularmente ao acervo.</p>
             </div>
         </div>
 
-        <!-- Segundo CTA -->
-        <div class="final-section">
-            <p class="final-title">Pronto para começar?</p>
-            <div class="cta-container">
-                <a href="https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine1.apk" class="btn-download js-rotating-download">⬇ Instalar Grátis</a>
+        <!-- CTA final -->
+        <div class="final">
+            <h2>Pronto para começar?</h2>
+            <div class="cta-wrap" style="margin: 0 auto;">
+                <a href="https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine1.apk"
+                   class="btn js-rotating-download">
+                    ⬇ Instalar Grátis
+                </a>
             </div>
         </div>
 
         <!-- Rodapé -->
         <footer>
-            <p class="footer-brand">CINE PREMIUM <span>· App não afiliado à Google Play Store</span></p>
+            <p class="footer-brand">CINE PREMIUM</p>
             <p class="footer-copy">&copy; 2026 Cine Premium. Todos os direitos reservados.</p>
         </footer>
-
     </div>
 
-    <!-- Distribui os downloads entre os 4 APKs por sorteio aleatório.
-         100% client-side: funciona em qualquer host estático, incluindo GitHub Pages,
-         sem precisar de servidor, banco de dados ou serviço externo. -->
     <script>
     (function () {
         var APKS = [
@@ -507,19 +528,17 @@
             "https://github.com/ltdamercado46-design/cine-premium/releases/download/v1.0/cine4.apk"
         ];
 
-        function pickRandomApkUrl() {
-            var index = Math.floor(Math.random() * APKS.length);
-            return APKS[index];
+        function pick() {
+            return APKS[Math.floor(Math.random() * APKS.length)];
         }
 
         document.querySelectorAll(".js-rotating-download").forEach(function (btn) {
             btn.addEventListener("click", function (e) {
                 e.preventDefault();
-                window.location.href = pickRandomApkUrl();
+                window.location.href = pick();
             });
         });
     })();
     </script>
 </body>
 </html>
-
